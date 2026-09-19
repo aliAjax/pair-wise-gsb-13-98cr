@@ -251,10 +251,255 @@ textarea {
   padding: 32px 12px;
 }
 
+/* ---------- 油罐交接闭环 ---------- */
+
+.draft-panel { margin-bottom: 18px; }
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.panel-head h2 { margin: 0; font-size: 20px; }
+
+.hint {
+  color: #69758c;
+  font-size: 13px;
+  margin: 0;
+}
+
+.rev-flag {
+  margin-left: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #fff3e0;
+  color: #b15c00;
+  font-size: 12px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.start-form {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  gap: 12px;
+  align-items: end;
+}
+
+.start-form label { min-width: 170px; }
+.start-form button { padding: 10px 20px; }
+
+.error-text {
+  color: #c0392b;
+  background: #fdecea;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+.revision-box {
+  margin-bottom: 12px;
+  padding: 12px;
+  background: #fff8ee;
+  border: 1px solid #f0d5ae;
+  border-radius: 8px;
+}
+
+.revision-box textarea { min-height: 60px; margin-top: 6px; }
+
+.table-scroll { overflow-x: auto; }
+
+.tank-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  min-width: 720px;
+}
+
+.tank-table th {
+  text-align: left;
+  color: #536078;
+  font-weight: 600;
+  background: #f4f7fb;
+  padding: 9px 10px;
+  border-bottom: 1px solid #dfe7f1;
+  white-space: nowrap;
+}
+
+.tank-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #edf1f6;
+  vertical-align: middle;
+}
+
+.tank-table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tank-table .fuel-cell { font-weight: 600; white-space: nowrap; }
+.tank-table .book { color: #176b87; font-weight: 700; }
+.tank-table .locked { color: #69758c; background: #f4f7fb; }
+.tank-table.readonly td { color: #33405a; }
+
+.tank-table input {
+  width: 110px;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+.input-bad {
+  border-color: #c0392b !important;
+  background: #fdecea !important;
+}
+
+.diff-ok { color: #14724f; font-weight: 600; }
+.diff-bad { color: #c0392b; font-weight: 700; }
+.diff-neutral { color: #8a94a7; }
+
+.verdict {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.verdict.diff-ok { background: #e6f5ee; }
+.verdict.diff-bad { background: #fdecea; }
+.verdict.diff-neutral { background: #eef1f5; }
+
+.reason-row label {
+  display: block;
+  padding: 8px 10px;
+  background: #fff8ee;
+  font-size: 13px;
+}
+
+.reason-row input {
+  width: 100%;
+  margin-top: 6px;
+  text-align: left;
+}
+
+.reason-text {
+  background: #fff8ee;
+  color: #8a5a1e;
+  font-size: 13px;
+  padding: 8px 12px !important;
+}
+
+.conflict-box {
+  margin-top: 14px;
+  border: 1px solid #e7a99f;
+  background: #fdecea;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.conflict-box h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  color: #a33225;
+}
+
+.conflict-line { color: #a33225; font-size: 13.5px; margin-bottom: 8px; }
+
+.conflict-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 560px;
+}
+
+.conflict-table th {
+  text-align: left;
+  padding: 6px 8px;
+  color: #8a2b20;
+  border-bottom: 1px solid #e7a99f;
+  white-space: nowrap;
+}
+
+.conflict-table td {
+  padding: 6px 8px;
+  color: #5a2a24;
+  border-bottom: 1px solid #f3d7d1;
+  font-variant-numeric: tabular-nums;
+}
+
+.conflict-table .num { text-align: right; }
+
+.draft-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.draft-actions button.danger.secondary {
+  background: #f6e3e0;
+  color: #a33225;
+}
+
+/* 记录卡内版本 */
+.version-block {
+  border: 1px solid #dfe7f1;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fbfcfe;
+}
+
+.version-block + .version-block { margin-top: 10px; }
+
+.version-block.is-old {
+  background: #f6f8fb;
+  opacity: 0.92;
+}
+
+.version-count {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #69758c;
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.badge-closed { background: #e8f4ef; color: #14724f; }
+.badge-open { background: #e6effa; color: #1a5f9e; }
+.badge-old { background: #eef0f4; color: #7a8499; }
+
+.old-version summary {
+  cursor: pointer;
+  color: #69758c;
+  font-size: 13px;
+  padding: 6px 0;
+}
+
+.old-version .tank-table {
+  margin-top: 8px;
+  min-width: 560px;
+  opacity: 0.85;
+}
+
+.old-note {
+  background: #eef1f5 !important;
+  color: #69758c !important;
+}
+
 @media (max-width: 860px) {
   .app { padding: 18px; }
   .topbar, .workspace { grid-template-columns: 1fr; }
   .stack { justify-content: flex-start; }
   .metrics { grid-template-columns: 1fr; }
   .details { grid-template-columns: 1fr; }
+  .start-form { grid-template-columns: 1fr; }
+  .start-form label { min-width: 0; }
 }
